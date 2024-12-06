@@ -6,4 +6,25 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.11" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.12.0" />
+    <PackageReference Include="Microsoft.DotNet.Scaffolding.Shared" Version="8.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="System.Text.Json" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookingApp.Data.Models\BookingApp.Data.Models.csproj" />
+    <ProjectReference Include="..\BookingApp.Data\BookingApp.Data.csproj" />
+    <ProjectReference Include="..\BookingApp.Web.ViewModels\BookingApp.Web.ViewModels.csproj" />
+  </ItemGroup>
+
 </Project>

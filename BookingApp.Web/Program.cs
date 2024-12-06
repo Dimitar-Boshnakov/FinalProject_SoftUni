@@ -1,3 +1,6 @@
+using BookingApp.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace BookingApp.Web
 {
     public class Program
@@ -5,8 +8,16 @@ namespace BookingApp.Web
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            string connectionString = builder.Configuration.GetConnectionString("SQLServer")!;
 
             // Add services to the container.
+            builder.Services
+                .AddDbContext<BookingDbContext>(options =>
+                {
+                    options.UseSqlServer(connectionString);
+                });
+
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
