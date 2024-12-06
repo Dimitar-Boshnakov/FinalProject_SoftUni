@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{2C9EE756-AA6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApp.Data.Models", "BookingApp.Data.Models\BookingApp.Data.Models.csproj", "{37164068-4245-4D4F-9E7A-0ED0FEC14E3D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{7E66FD6E-C722-46E1-9824-513B126B0D51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{428F508B-6280-42DF-8648-A8D5DF263E7F} = {2C9EE756-AA65-448E-965E-37511412FBFE}
 		{974D9156-C1C5-4FEC-B18B-5925F75117AA} = {2C9EE756-AA65-448E-965E-37511412FBFE}
+		{37164068-4245-4D4F-9E7A-0ED0FEC14E3D} = {7E66FD6E-C722-46E1-9824-513B126B0D51}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0F1AD43-1B09-4B89-B99C-FE19348E67E9}

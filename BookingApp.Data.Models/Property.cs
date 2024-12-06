@@ -13,8 +13,9 @@ namespace BookingApp.Data.Models
         [Required]
         public string Location { get; set; } = null!;
 
-        public string? Description { get; set; } 
+        public string? Description { get; set; }
 
+        [Required]
         public bool IsAvailable { get; set; }
 
         public bool IsDeleated { get; set; }
