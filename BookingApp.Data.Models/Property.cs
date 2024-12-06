@@ -15,6 +15,8 @@ namespace BookingApp.Data.Models
 
         public string? Description { get; set; }
 
+        public string? ImgUrl { get; set; }
+
         [Required]
         public bool IsAvailable { get; set; }
 
