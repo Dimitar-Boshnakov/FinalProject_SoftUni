@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KAwK2f7t/6NcVprLSkMaS6XRsKzwTDd6w66uZTnePTE=",
+  "Hash": "4tICw5b82U5uyT2mhDsS6p4OstZQ9tVGSpGx/VZduTM=",
   "Source": "BookingApp.Web",
   "BasePath": "_content/BookingApp.Web",
   "Mode": "Default",
@@ -1193,6 +1193,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\Mitko\\Desktop\\Programing\\FinalProject\\FinalProject_SoftUni\\BookingApp.Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\BookingApp.Web.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\Mitko\\Desktop\\Programing\\FinalProject\\FinalProject_SoftUni\\BookingApp.Web\\wwwroot\\css\\HomeStyle.css",
+      "SourceId": "BookingApp.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Mitko\\Desktop\\Programing\\FinalProject\\FinalProject_SoftUni\\BookingApp.Web\\wwwroot\\",
+      "BasePath": "_content/BookingApp.Web",
+      "RelativePath": "css/HomeStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\HomeStyle.css"
     },
     {
       "Identity": "C:\\Users\\Mitko\\Desktop\\Programing\\FinalProject\\FinalProject_SoftUni\\BookingApp.Web\\wwwroot\\css\\site.css",

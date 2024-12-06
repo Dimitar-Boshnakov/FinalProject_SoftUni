@@ -1,5 +1,6 @@
 ﻿using BookingApp.Data.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System.Reflection;
 
 namespace BookingApp.Data
@@ -15,6 +16,13 @@ namespace BookingApp.Data
             : base(options) 
         {
 
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+
+            optionsBuilder.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         }
 
         public virtual DbSet<Property> Properties { get; set; } = null!;

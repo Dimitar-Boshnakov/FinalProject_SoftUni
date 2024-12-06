@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\Images\\villa-sea.jpg"
     },
     {
+      "Id": "C:\\Users\\Mitko\\Desktop\\Programing\\FinalProject\\FinalProject_SoftUni\\BookingApp.Web\\wwwroot\\css\\HomeStyle.css",
+      "PackagePath": "staticwebassets\\css\\HomeStyle.css"
+    },
+    {
       "Id": "C:\\Users\\Mitko\\Desktop\\Programing\\FinalProject\\FinalProject_SoftUni\\BookingApp.Web\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
