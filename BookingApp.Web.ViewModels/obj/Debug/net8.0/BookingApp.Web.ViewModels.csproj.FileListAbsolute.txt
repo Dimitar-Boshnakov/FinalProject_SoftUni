@@ -1,0 +1,12 @@
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\bin\Debug\net8.0\BookingApp.Web.ViewModels.deps.json
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\bin\Debug\net8.0\BookingApp.Web.ViewModels.dll
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\bin\Debug\net8.0\BookingApp.Web.ViewModels.pdb
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\obj\Debug\net8.0\BookingApp.Web.ViewModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\obj\Debug\net8.0\BookingApp.Web.ViewModels.AssemblyInfoInputs.cache
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\obj\Debug\net8.0\BookingApp.Web.ViewModels.AssemblyInfo.cs
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\obj\Debug\net8.0\BookingApp.Web.ViewModels.csproj.CoreCompileInputs.cache
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\obj\Debug\net8.0\BookingApp.Web.ViewModels.sourcelink.json
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\obj\Debug\net8.0\BookingApp.Web.ViewModels.dll
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\obj\Debug\net8.0\refint\BookingApp.Web.ViewModels.dll
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\obj\Debug\net8.0\BookingApp.Web.ViewModels.pdb
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\obj\Debug\net8.0\ref\BookingApp.Web.ViewModels.dll

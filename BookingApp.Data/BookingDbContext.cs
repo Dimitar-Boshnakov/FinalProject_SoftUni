@@ -1,5 +1,6 @@
 ﻿using BookingApp.Data.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace BookingApp.Data
 {
@@ -21,5 +22,13 @@ namespace BookingApp.Data
         public virtual DbSet<Booking> Bookings { get; set; } = null!;
 
         public virtual DbSet<Payment> Payments { get; set; } = null!;
+
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
     }
 }
