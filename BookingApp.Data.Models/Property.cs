@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using static BookingApp.Common.EntityValidation;
 
 namespace BookingApp.Data.Models
 {
@@ -8,22 +9,26 @@ namespace BookingApp.Data.Models
         public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required]
+        [MaxLength(PropertyValidation.PropertyNameMaxLength)]
         public string PropertyName { get; set; } = null!;
 
         [Required]
+        [MaxLength(PropertyValidation.LocationMaxLength)]
         public string Location { get; set; } = null!;
 
         [Required]
+        [Range((double)PropertyValidation.PricePerNightMinValue, (double)PropertyValidation.PricePerNightMaxValue)]
         public decimal PricePerNight { get; set; }
 
         [Required]
-        public bool IsAvailable { get; set; }
+        public bool IsAvailable { get; set; } = true;
 
+        [MaxLength(PropertyValidation.DescriptionMaxLength)]
         public string? Description { get; set; }
 
         public string? ImgUrl { get; set; }
 
-        public bool IsDeleated { get; set; }
+        public bool IsDeleated { get; set; } = false;
 
         public virtual ICollection<Booking> Bookings { get; set; } = new HashSet<Booking>();
 

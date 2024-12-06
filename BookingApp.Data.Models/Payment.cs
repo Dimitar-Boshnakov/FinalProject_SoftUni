@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static BookingApp.Common.EntityValidation;
 
 namespace BookingApp.Data.Models
 {
@@ -14,6 +10,7 @@ namespace BookingApp.Data.Models
         public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required]
+        [Range((double)PaymentValidation.TotalPriceMinValue, (double)PaymentValidation.TotalPriceMaxValue)]
         public decimal TotalPrice { get; set; }
 
         [Required]
