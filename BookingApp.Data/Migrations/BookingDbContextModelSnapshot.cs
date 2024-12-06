@@ -104,63 +104,6 @@ namespace BookingApp.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Properties");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("a5dfcda5-1fc9-4195-9d9a-140b211b64bd"),
-                            Description = "A luxurious villa with a private pool and stunning sea views.",
-                            ImgUrl = "/images/villa-sea.jpg",
-                            IsAvailable = true,
-                            IsDeleated = false,
-                            Location = "Bulgaria, Varna",
-                            PricePerNight = 350.00m,
-                            PropertyName = "Luxury Villa by the Sea"
-                        },
-                        new
-                        {
-                            Id = new Guid("33c298ca-e229-4675-ba48-b9a7d2cb24d4"),
-                            Description = "Cozy mountain cabin perfect for skiing season or peaceful summer retreat.",
-                            ImgUrl = "/images/mountain-cabin.jpg",
-                            IsAvailable = true,
-                            IsDeleated = false,
-                            Location = "Bulgaria, Bansko",
-                            PricePerNight = 120.00m,
-                            PropertyName = "Mountain Retreat"
-                        },
-                        new
-                        {
-                            Id = new Guid("c3a9d5f0-4239-48f6-9cb0-61deeaa39cc8"),
-                            Description = "Modern apartment in the heart of Sofia, close to all major attractions.",
-                            ImgUrl = "/images/sofia-apartment.jpg",
-                            IsAvailable = false,
-                            IsDeleated = false,
-                            Location = "Bulgaria, Sofia",
-                            PricePerNight = 80.00m,
-                            PropertyName = "City Center Apartment"
-                        },
-                        new
-                        {
-                            Id = new Guid("3b4636d8-c291-4e69-98a2-07077846fbdb"),
-                            Description = "A luxurious resort with direct beach access and all-inclusive amenities.",
-                            ImgUrl = "/images/beachfront-resort.jpg",
-                            IsAvailable = true,
-                            IsDeleated = false,
-                            Location = "Bulgaria, Sunny Beach",
-                            PricePerNight = 250.00m,
-                            PropertyName = "Beachfront Resort"
-                        },
-                        new
-                        {
-                            Id = new Guid("a290e441-da91-44db-9573-9fe2d9e95c88"),
-                            Description = "Charming house surrounded by nature, ideal for a quiet getaway.",
-                            ImgUrl = "/images/countryside-house.jpg",
-                            IsAvailable = true,
-                            IsDeleated = false,
-                            Location = "Bulgaria, Plovdiv",
-                            PricePerNight = 90.00m,
-                            PropertyName = "Cozy Countryside House"
-                        });
                 });
 
             modelBuilder.Entity("BookingApp.Data.Models.Booking", b =>
