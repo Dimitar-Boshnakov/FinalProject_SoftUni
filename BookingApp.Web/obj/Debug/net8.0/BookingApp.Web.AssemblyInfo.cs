@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookingApp.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d14bf0a1de4d46f7dfed8350d43f0a795db4e650")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ddd88ab46a4533376a531f6f6a978d927d74139")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookingApp.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookingApp.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
