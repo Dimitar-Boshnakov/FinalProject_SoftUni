@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,15 +8,13 @@ using System.Threading.Tasks;
 
 namespace BookingApp.Data.Models
 {
-    [PrimaryKey(nameof(BookingId), nameof(PropertyId))]
-
-    public class PropertyBoking
+    public class Payment
     {
-        [Required]
-        public Guid BookingId { get; set; }
+        [Key]
+        public Guid Id { get; set; } = Guid.NewGuid();
 
-        [ForeignKey(nameof(BookingId))]
-        public virtual ICollection<Booking> Bookings { get; set; } = null!;
+        [Required]
+        public decimal TotalPrice { get; set; }
 
         [Required]
         public Guid PropertyId { get; set; }
@@ -25,5 +22,10 @@ namespace BookingApp.Data.Models
         [ForeignKey(nameof(PropertyId))]
         public virtual Property Property { get; set; } = null!;
 
+        [Required]
+        public Guid BookingId { get; set; }
+
+        [ForeignKey(nameof(BookingId))]
+        public virtual Booking Booking { get; set; } = null!;
     }
 }

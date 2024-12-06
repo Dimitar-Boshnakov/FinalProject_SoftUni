@@ -13,13 +13,20 @@ namespace BookingApp.Data.Models
         [Required]
         public string Location { get; set; } = null!;
 
-        public string? Description { get; set; }
-
-        public string? ImgUrl { get; set; }
+        [Required]
+        public decimal PricePerNight { get; set; }
 
         [Required]
         public bool IsAvailable { get; set; }
 
+        public string? Description { get; set; }
+
+        public string? ImgUrl { get; set; }
+
         public bool IsDeleated { get; set; }
+
+        public virtual ICollection<Booking> Bookings { get; set; } = new HashSet<Booking>();
+
+        public virtual ICollection<Payment> Payments { get; set; } = new HashSet<Payment>();    
     }
 }
