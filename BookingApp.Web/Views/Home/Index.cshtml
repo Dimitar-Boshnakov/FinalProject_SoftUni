@@ -1,5 +1,8 @@
-﻿@using BookingApp.Web.ViewModels.Models.HomeViewModel;
+﻿@using BookingApp.Data.Models
+@using BookingApp.Web.ViewModels.Models.HomeViewModel;
+@using Microsoft.AspNetCore.Identity
 @model IEnumerable<HomeIndexViewModel>;
+@inject SignInManager<ApplicationUser> SignInManager
 
 @{
     ViewData["Title"] = "Home";
@@ -57,7 +60,15 @@
                         <p>@property.Location</p>
                         <p><strong>Price per Night:</strong> $@property.Price</p>
                         <p><strong>Status:</strong> @(property.IsAvailable ? "Available" : "Not Available")</p>
-                        <a href="@Url.Action("Details", "Property", new { id = property.Id })" class="btn-view">View Details</a>
+
+                        <!-- View Details Button -->
+                        <a href="@Url.Action("ViewDetails", "Property", new { id = property.Id })" class="btn-view">View Details</a>
+
+                        @if (SignInManager.IsSignedIn(User) && property.IsAvailable)
+                        {
+                            <!-- Book Button (only visible if user is signed in) -->
+                            <a href="@Url.Action("BookProperty", "Property", new { id = property.Id })" class="btn btn-primary">Book</a>
+                        }
                     </div>
                 </div>
             }

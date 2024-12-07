@@ -24,6 +24,7 @@ namespace BookingApp.Web
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<BookingDbContext>()
+                .AddDefaultUI()
                 .AddDefaultTokenProviders();
 
             builder.Services.Configure<IdentityOptions>(options =>
@@ -39,6 +40,7 @@ namespace BookingApp.Web
             });
 
             builder.Services.AddScoped<IHomeService, HomeService>();
+            builder.Services.AddScoped<IPropertyService, PropertyService>();
             builder.Services.AddRazorPages();
 
             builder.Services.AddControllersWithViews();

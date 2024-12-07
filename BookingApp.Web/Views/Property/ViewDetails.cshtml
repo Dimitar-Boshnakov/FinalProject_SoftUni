@@ -1,0 +1,19 @@
+﻿@model BookingApp.Web.ViewModels.Models.Property.PropertyDetailsViewModel
+
+<h2>Details for @Model.Name</h2>
+
+<p><strong>Description:</strong> @Model.Description</p>
+<p><strong>Location:</strong> @Model.Location</p>
+<p><strong>Price per night:</strong> @Model.Price</p>
+
+@if (Model.IsAvailable)
+{
+    <form asp-action="BookProperty" asp-route-id="@Model.Id" method="post">
+        <button type="submit" class="btn btn-primary">Book Property</button>
+    </form>
+}
+else
+{
+    <p class="text-danger">This property is not available.</p>
+}
+<a asp-action="Index" asp-controller="Home" class="btn btn-secondary">Back to Home</a>
