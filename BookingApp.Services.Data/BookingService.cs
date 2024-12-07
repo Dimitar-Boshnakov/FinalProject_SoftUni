@@ -23,7 +23,7 @@ namespace BookingApp.Services.Data
             throw new NotImplementedException();
         }
 
-        public Task<bool> CreateBookingAsync(Guid propertyId, Guid userId, DateTime arrivalDate, DateTime leaveDate)
+        public async Task<bool> CreateBookingAsync(Guid propertyId, Guid userId, DateTime arrivalDate, DateTime leaveDate)
         {
             throw new NotImplementedException();
         }

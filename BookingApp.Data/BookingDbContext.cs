@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using System.Reflection;
 
 namespace BookingApp.Data
@@ -32,6 +33,8 @@ namespace BookingApp.Data
         public virtual DbSet<Booking> Bookings { get; set; } = null!;
 
         public virtual DbSet<Payment> Payments { get; set; } = null!;
+
+        public virtual DbSet<ApplicationUserBookings> UserBookings { get; set; } = null!;
 
 
 

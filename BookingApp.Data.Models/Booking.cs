@@ -26,5 +26,8 @@ namespace BookingApp.Data.Models
         public virtual Property Property { get; set; } = null!;
 
         public virtual Payment Payment { get; set; } = null!;
+
+        public virtual ICollection<ApplicationUserBookings> BookingApplicationUsers { get; set; }
+            = new HashSet<ApplicationUserBookings>();
     }
 }

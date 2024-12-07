@@ -14,5 +14,8 @@ namespace BookingApp.Data.Models
          
             this.Id = Guid.NewGuid();
         }
+
+        public virtual ICollection<ApplicationUserBookings> ApplicationUserBookings { get; set; }
+           = new HashSet<ApplicationUserBookings>();
     }
 }
