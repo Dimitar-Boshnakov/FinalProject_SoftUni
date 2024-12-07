@@ -1,4 +1,6 @@
 using BookingApp.Data;
+using BookingApp.Services.Data;
+using BookingApp.Services.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookingApp.Web
@@ -17,6 +19,9 @@ namespace BookingApp.Web
                     options.UseSqlServer(connectionString);
                 });
 
+
+
+            builder.Services.AddScoped<IHomeService, HomeService>();
 
             builder.Services.AddControllersWithViews();
 

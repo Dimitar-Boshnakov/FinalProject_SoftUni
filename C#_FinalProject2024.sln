@@ -3,21 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApp.Web", "BookingApp.Web\BookingApp.Web.csproj", "{428F508B-6280-42DF-8648-A8D5DF263E7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingApp.Web", "BookingApp.Web\BookingApp.Web.csproj", "{428F508B-6280-42DF-8648-A8D5DF263E7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApp.Web.ViewModels", "BookingApp.Web.ViewModels\BookingApp.Web.ViewModels.csproj", "{974D9156-C1C5-4FEC-B18B-5925F75117AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingApp.Web.ViewModels", "BookingApp.Web.ViewModels\BookingApp.Web.ViewModels.csproj", "{974D9156-C1C5-4FEC-B18B-5925F75117AA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{2C9EE756-AA65-448E-965E-37511412FBFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApp.Data.Models", "BookingApp.Data.Models\BookingApp.Data.Models.csproj", "{37164068-4245-4D4F-9E7A-0ED0FEC14E3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingApp.Data.Models", "BookingApp.Data.Models\BookingApp.Data.Models.csproj", "{37164068-4245-4D4F-9E7A-0ED0FEC14E3D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{7E66FD6E-C722-46E1-9824-513B126B0D51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApp.Data", "BookingApp.Data\BookingApp.Data.csproj", "{CF146123-1143-4C79-8F09-6751D8697CA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingApp.Data", "BookingApp.Data\BookingApp.Data.csproj", "{CF146123-1143-4C79-8F09-6751D8697CA3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{A1CDBCF1-57E4-42FC-B5EA-50F001981FF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApp.Common", "BookingApp.Common\BookingApp.Common.csproj", "{A641EAE0-E4E7-4417-A2D8-5032EDA9076C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingApp.Common", "BookingApp.Common\BookingApp.Common.csproj", "{A641EAE0-E4E7-4417-A2D8-5032EDA9076C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E4F5FAF2-FD30-4C5D-87FC-FC8E5BB4B751}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApp.Services.Data", "BookingApp.Services.Data\BookingApp.Services.Data.csproj", "{F16C8B5B-A8D7-46EA-9E2D-69C511007F08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,10 @@ Global
 		{A641EAE0-E4E7-4417-A2D8-5032EDA9076C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A641EAE0-E4E7-4417-A2D8-5032EDA9076C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A641EAE0-E4E7-4417-A2D8-5032EDA9076C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F16C8B5B-A8D7-46EA-9E2D-69C511007F08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16C8B5B-A8D7-46EA-9E2D-69C511007F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16C8B5B-A8D7-46EA-9E2D-69C511007F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16C8B5B-A8D7-46EA-9E2D-69C511007F08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +63,7 @@ Global
 		{37164068-4245-4D4F-9E7A-0ED0FEC14E3D} = {7E66FD6E-C722-46E1-9824-513B126B0D51}
 		{CF146123-1143-4C79-8F09-6751D8697CA3} = {7E66FD6E-C722-46E1-9824-513B126B0D51}
 		{A641EAE0-E4E7-4417-A2D8-5032EDA9076C} = {A1CDBCF1-57E4-42FC-B5EA-50F001981FF8}
+		{F16C8B5B-A8D7-46EA-9E2D-69C511007F08} = {E4F5FAF2-FD30-4C5D-87FC-FC8E5BB4B751}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0F1AD43-1B09-4B89-B99C-FE19348E67E9}

@@ -24,6 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BookingApp.Data.Models\BookingApp.Data.Models.csproj" />
     <ProjectReference Include="..\BookingApp.Data\BookingApp.Data.csproj" />
+    <ProjectReference Include="..\BookingApp.Services.Data\BookingApp.Services.Data.csproj" />
     <ProjectReference Include="..\BookingApp.Web.ViewModels\BookingApp.Web.ViewModels.csproj" />
   </ItemGroup>
 

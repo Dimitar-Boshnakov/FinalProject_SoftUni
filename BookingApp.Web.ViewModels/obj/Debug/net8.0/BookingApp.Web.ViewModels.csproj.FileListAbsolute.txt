@@ -10,3 +10,9 @@ C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.W
 C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\obj\Debug\net8.0\refint\BookingApp.Web.ViewModels.dll
 C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\obj\Debug\net8.0\BookingApp.Web.ViewModels.pdb
 C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\obj\Debug\net8.0\ref\BookingApp.Web.ViewModels.dll
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\bin\Debug\net8.0\BookingApp.Common.dll
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\bin\Debug\net8.0\BookingApp.Data.Models.dll
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\bin\Debug\net8.0\BookingApp.Data.Models.pdb
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\bin\Debug\net8.0\BookingApp.Common.pdb
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\obj\Debug\net8.0\BookingApp.Web.ViewModels.csproj.AssemblyReference.cache
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web.ViewModels\obj\Debug\net8.0\BookingA.07681B27.Up2Date

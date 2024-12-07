@@ -1,4 +1,5 @@
 using BookingApp.Data;
+using BookingApp.Services.Data.Interfaces;
 using BookingApp.Web.Models;
 using BookingApp.Web.ViewModels.Models.HomeViewModel;
 using Microsoft.AspNetCore.Mvc;
@@ -9,50 +10,16 @@ namespace BookingApp.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly BookingDbContext _context;
+        private readonly IHomeService _homeService;
 
-        public HomeController(BookingDbContext context)
+        public HomeController(IHomeService homeService)
         {
-            _context = context;
+            _homeService = homeService;
         }
 
         public IActionResult Index(string location, decimal? minPrice, decimal? maxPrice, bool? isAvailable)
         {
-            var properties = _context.Properties.AsQueryable();
-            if (!string.IsNullOrEmpty(location))
-            {
-                properties = properties.Where(p => p.Location.Contains(location));
-            }
-
-            if (minPrice.HasValue)
-            {
-                properties = properties.Where(p => p.PricePerNight >= minPrice.Value);
-            }
-
-            if (maxPrice.HasValue)
-            {
-                properties = properties.Where(p => p.PricePerNight <= maxPrice.Value);
-            }
-
-            if (isAvailable.HasValue)
-            {
-                properties = properties.Where(p => p.IsAvailable == isAvailable.Value);
-            }
-
-            var propertiesViewModel = properties
-            .Select(p => new HomeIndexViewModel
-            {
-                Id = p.Id,
-                Name = p.PropertyName,
-                Location = p.Location,
-                Price = p.PricePerNight,
-                Decsription = p.Description ?? "No description available",
-                ImgUrl = p.ImgUrl ?? "/images/default-image.jpg", 
-                IsAvailable = p.IsAvailable
-            })
-            .ToList();
-
-
+            var propertiesViewModel = _homeService.GetFilteredProperties(location, minPrice, maxPrice, isAvailable);
             return View(propertiesViewModel);
         }
     

@@ -10,6 +10,7 @@
         "dependencies": {
           "BookingApp.Data": "1.0.0",
           "BookingApp.Data.Models": "1.0.0",
+          "BookingApp.Services.Data": "1.0.0",
           "BookingApp.Web.ViewModels": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.11",
           "Microsoft.AspNetCore.Identity.UI": "8.0.11",
@@ -2198,7 +2199,21 @@
           "BookingApp.Data.Models.dll": {}
         }
       },
+      "BookingApp.Services.Data/1.0.0": {
+        "dependencies": {
+          "BookingApp.Common": "1.0.0",
+          "BookingApp.Data": "1.0.0",
+          "BookingApp.Data.Models": "1.0.0",
+          "BookingApp.Web.ViewModels": "1.0.0"
+        },
+        "runtime": {
+          "BookingApp.Services.Data.dll": {}
+        }
+      },
       "BookingApp.Web.ViewModels/1.0.0": {
+        "dependencies": {
+          "BookingApp.Data.Models": "1.0.0"
+        },
         "runtime": {
           "BookingApp.Web.ViewModels.dll": {}
         }
@@ -3356,6 +3371,11 @@
       "sha512": ""
     },
     "BookingApp.Data.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BookingApp.Services.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

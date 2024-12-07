@@ -313,3 +313,5 @@ C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.W
 C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web\obj\Debug\net8.0\BookingApp.Web.pdb
 C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web\obj\Debug\net8.0\BookingApp.Web.genruntimeconfig.cache
 C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web\obj\Debug\net8.0\ref\BookingApp.Web.dll
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web\bin\Debug\net8.0\BookingApp.Services.Data.dll
+C:\Users\Mitko\Desktop\Programing\FinalProject\FinalProject_SoftUni\BookingApp.Web\bin\Debug\net8.0\BookingApp.Services.Data.pdb
