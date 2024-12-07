@@ -14,7 +14,7 @@ namespace BookingApp.Data
 
         }
 
-        public BookingDbContext(DbContextOptions options)
+        public BookingDbContext(DbContextOptions<BookingDbContext> options)
             : base(options) 
         {
 

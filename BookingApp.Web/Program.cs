@@ -2,6 +2,7 @@ using BookingApp.Data;
 using BookingApp.Data.Models;
 using BookingApp.Services.Data;
 using BookingApp.Services.Data.Interfaces;
+using BookingApp.Web.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,8 +23,8 @@ namespace BookingApp.Web
                 });
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
-               .AddEntityFrameworkStores<BookingDbContext>()
-               .AddDefaultTokenProviders();
+                .AddEntityFrameworkStores<BookingDbContext>()
+                .AddDefaultTokenProviders();
 
             builder.Services.Configure<IdentityOptions>(options =>
             {
@@ -38,6 +39,7 @@ namespace BookingApp.Web
             });
 
             builder.Services.AddScoped<IHomeService, HomeService>();
+            builder.Services.AddRazorPages();
 
             builder.Services.AddControllersWithViews();
 
@@ -54,6 +56,8 @@ namespace BookingApp.Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.MapRazorPages();
+
             app.UseRouting();
 
             app.UseAuthentication();
@@ -62,6 +66,13 @@ namespace BookingApp.Web
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var serviceProvider = scope.ServiceProvider;
+                UserAdminLogic.SeedRolesAndAdminAsync(serviceProvider).GetAwaiter().GetResult();
+            }
 
             app.Run();
         }
