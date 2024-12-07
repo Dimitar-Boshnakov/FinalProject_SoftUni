@@ -1,6 +1,8 @@
 using BookingApp.Data;
+using BookingApp.Data.Models;
 using BookingApp.Services.Data;
 using BookingApp.Services.Data.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookingApp.Web
@@ -19,7 +21,21 @@ namespace BookingApp.Web
                     options.UseSqlServer(connectionString);
                 });
 
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
+               .AddEntityFrameworkStores<BookingDbContext>()
+               .AddDefaultTokenProviders();
 
+            builder.Services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireLowercase = true;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.User.RequireUniqueEmail = true;
+            });
 
             builder.Services.AddScoped<IHomeService, HomeService>();
 
@@ -40,6 +56,7 @@ namespace BookingApp.Web
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

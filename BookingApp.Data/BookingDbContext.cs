@@ -1,11 +1,13 @@
 ﻿using BookingApp.Data.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System.Reflection;
 
 namespace BookingApp.Data
 {
-    public class BookingDbContext : DbContext 
+    public class BookingDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
     {
         public BookingDbContext()
         {
