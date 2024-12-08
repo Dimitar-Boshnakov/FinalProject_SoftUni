@@ -27,14 +27,14 @@ namespace BookingApp.Web.Areas.Identity.Pages.Account
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserStore<ApplicationUser> _userStore;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<IdentityRole<Guid>> _roleManager;
         private readonly ILogger<RegisterModel> _logger;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
-            RoleManager<IdentityRole> roleManager,
+            RoleManager<IdentityRole<Guid>> roleManager,
             ILogger<RegisterModel> logger)
         {
             _userManager = userManager;
@@ -120,7 +120,7 @@ namespace BookingApp.Web.Areas.Identity.Pages.Account
                     // Проверка и добавяне на роля "User"
                     if (!await _roleManager.RoleExistsAsync("User"))
                     {
-                        await _roleManager.CreateAsync(new IdentityRole("User"));
+                        await _roleManager.CreateAsync(new IdentityRole<Guid>("User"));
                     }
                     await _userManager.AddToRoleAsync(user, "User");
 

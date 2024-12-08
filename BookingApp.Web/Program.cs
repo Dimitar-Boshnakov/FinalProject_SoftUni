@@ -61,6 +61,7 @@ namespace BookingApp.Web
             builder.Services.AddScoped<IHomeService, HomeService>();
             builder.Services.AddScoped<IPropertyService, PropertyService>();
             builder.Services.AddScoped<IBookingService, BookingService>();
+            builder.Services.AddScoped<IAdminService, AdminService>();
 
             builder.Services.AddRazorPages();
 

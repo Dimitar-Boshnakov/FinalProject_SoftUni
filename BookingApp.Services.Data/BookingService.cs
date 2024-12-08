@@ -1,6 +1,7 @@
 ﻿using BookingApp.Data;
 using BookingApp.Data.Models;
 using BookingApp.Services.Data.Interfaces;
+using BookingApp.Web.ViewModels.Models.Booking;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -100,6 +101,21 @@ namespace BookingApp.Services.Data
             await _context.SaveChangesAsync();
 
             return true;
+        }
+
+        public async Task<List<BookingViewModel>> GetAllBookingsAsync()
+        {
+            return await _context.Bookings
+                .Include(b => b.Property)
+                .Select(b => new BookingViewModel
+                {
+                    Id = b.Id,
+                    PropertyName = b.Property.PropertyName,
+                    ArrivalDate = b.ArrivalDate,
+                    LeaveDate = b.LeaveDate,
+                    IsPaid = b.IsPaid
+                })
+                .ToListAsync();
         }
     }
 }

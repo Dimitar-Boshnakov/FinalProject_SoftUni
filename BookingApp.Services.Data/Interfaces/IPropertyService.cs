@@ -11,5 +11,6 @@ namespace BookingApp.Services.Data.Interfaces
     {
         Task<PropertyDetailsViewModel> GetPropertyDetailsAsync(Guid id);
         Task<bool> BookPropertyAsync(Guid id, Guid userId);
+        Task<List<PropertyDetailsViewModel>> GetAllPropertiesAsync();
     }
 }

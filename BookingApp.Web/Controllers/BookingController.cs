@@ -1,6 +1,8 @@
-﻿using BookingApp.Services.Data.Interfaces;
+﻿using BookingApp.Data.Models;
+using BookingApp.Services.Data.Interfaces;
 using BookingApp.Web.ViewModels.Models.Booking;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -10,22 +12,31 @@ namespace BookingApp.Web.Controllers
     public class BookingController : Controller
     {
         private readonly IBookingService _bookingService;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public BookingController(IBookingService bookingService)
+        public BookingController(IBookingService bookingService, UserManager<ApplicationUser> userManager)
         {
             _bookingService = bookingService;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index()
         {
 
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier); 
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
             if (userIdClaim == null)
             {
                 return Unauthorized();
             }
 
             var userId = Guid.Parse(userIdClaim.Value);
+
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            if (await _userManager.IsInRoleAsync(user, "Admin"))
+            {
+                return RedirectToAction("Dashboard", "Admin");
+            }
+
             var bookings = await _bookingService.GetUserBookingsAsync(userId);
 
             var bookingViewModels = bookings.Select(b => new BookingViewModel

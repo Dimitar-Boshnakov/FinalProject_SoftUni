@@ -65,6 +65,20 @@ namespace BookingApp.Services.Data
                 IsAvailable = property.IsAvailable
             };
         }
+
+        public async Task<List<PropertyDetailsViewModel>> GetAllPropertiesAsync()
+        {
+            return await _context.Properties
+                .Select(p => new PropertyDetailsViewModel
+                {
+                    Id = p.Id,
+                    Name = p.PropertyName,
+                    Location = p.Location,
+                    Price = p.PricePerNight,
+                    IsAvailable = p.IsAvailable
+                })
+                .ToListAsync();
+        }
     }
     
 }
