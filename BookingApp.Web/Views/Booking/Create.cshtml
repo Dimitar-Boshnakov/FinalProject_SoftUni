@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<h2>Create Booking</h2>
+
+<form asp-action="Create" method="post">
+    <input type="hidden" name="propertyId" value="@ViewBag.PropertyId" />
+    <div>
+        <label>Arrival Date:</label>
+        <input type="date" name="arrivalDate" required />
+    </div>
+    <div>
+        <label>Leave Date:</label>
+        <input type="date" name="leaveDate" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Create Booking</button>
+</form>

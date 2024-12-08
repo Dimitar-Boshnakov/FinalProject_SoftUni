@@ -19,6 +19,8 @@ namespace BookingApp.Data.Models
         [Required]
         public DateTime LeaveDate { get; set; }
 
+        public bool IsPaid { get; set; }
+
         [Required]
         public Guid PropertyId { get; set; }
 

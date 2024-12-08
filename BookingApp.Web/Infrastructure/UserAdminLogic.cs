@@ -5,40 +5,55 @@ namespace BookingApp.Web.Infrastructure
 {
     public class UserAdminLogic
     {
-        public static async Task SeedRolesAndAdminAsync(IServiceProvider serviceProvider)
+        public static async Task SeedRolesAsync(RoleManager<IdentityRole<Guid>> roleManager, UserManager<ApplicationUser> userManager)
         {
-            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
-            var roles = new[] { "Admin", "User" };
-
-            foreach (var role in roles)
+            string[] roleNames = { "Admin", "User" };
+            foreach (var roleName in roleNames)
             {
-                if (!await roleManager.RoleExistsAsync(role))
+                if (!await roleManager.RoleExistsAsync(roleName))
                 {
-                    await roleManager.CreateAsync(new IdentityRole<Guid>(role));
+                    await roleManager.CreateAsync(new IdentityRole<Guid>(roleName));
                 }
             }
 
-            var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-
-            var adminEmail = "admin@bookingapp.com";
-            var adminPassword = "Admin@123";
-
-            if (await userManager.FindByEmailAsync(adminEmail) == null)
+            var adminEmail = "admin@domain.com";
+            var adminUser = await userManager.FindByEmailAsync(adminEmail);
+            if (adminUser == null)
             {
-                var adminUser = new ApplicationUser
+                var user = new ApplicationUser
                 {
                     UserName = adminEmail,
-                    Email = adminEmail
+                    Email = adminEmail,
+                    EmailConfirmed = true
                 };
 
-                var result = await userManager.CreateAsync(adminUser, adminPassword);
-
+                var result = await userManager.CreateAsync(user, "Admin123!");
                 if (result.Succeeded)
                 {
-                    await userManager.AddToRoleAsync(adminUser, "Admin");
+                    await userManager.AddToRoleAsync(user, "Admin");
                 }
             }
 
+            var allUsers = userManager.Users.ToList();
+
+            foreach (var user in allUsers)
+            {
+                var roles = await userManager.GetRolesAsync(user);
+                if (roles.Count == 0) 
+                {
+                    await userManager.AddToRoleAsync(user, "User");
+                }
+            }
+
+            foreach (var user in allUsers)
+            {
+                var roles = await userManager.GetRolesAsync(user);
+                if (roles.Count == 0) 
+                {
+                    await userManager.AddToRoleAsync(user, "User");
+                    Console.WriteLine($"Role 'User' added to {user.Email}");
+                }
+            }
         }
     }
 }

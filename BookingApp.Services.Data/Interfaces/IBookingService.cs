@@ -12,5 +12,7 @@ namespace BookingApp.Services.Data.Interfaces
         Task<bool> CreateBookingAsync(Guid propertyId, Guid userId, DateTime arrivalDate, DateTime leaveDate);
         Task<IEnumerable<Booking>> GetUserBookingsAsync(Guid userId);
         Task<bool> ConfirmPaymentAsync(Guid bookingId);
+
+        Task<bool> DeleteBookingAsync(Guid bookingId);
     }
 }

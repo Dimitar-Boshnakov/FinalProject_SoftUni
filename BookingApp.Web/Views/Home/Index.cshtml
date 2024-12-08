@@ -61,13 +61,13 @@
                         <p><strong>Price per Night:</strong> $@property.Price</p>
                         <p><strong>Status:</strong> @(property.IsAvailable ? "Available" : "Not Available")</p>
 
-                        <!-- View Details Button -->
+                        
                         <a href="@Url.Action("ViewDetails", "Property", new { id = property.Id })" class="btn-view">View Details</a>
 
                         @if (SignInManager.IsSignedIn(User) && property.IsAvailable)
                         {
-                            <!-- Book Button (only visible if user is signed in) -->
-                            <a href="@Url.Action("BookProperty", "Property", new { id = property.Id })" class="btn btn-primary">Book</a>
+
+                            <a asp-controller="Booking" asp-action="Create" asp-route-propertyId="@property.Id" class="btn btn-primary">Book Now</a>
                         }
                     </div>
                 </div>

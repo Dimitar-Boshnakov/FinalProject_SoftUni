@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingApp.Common", "Bookin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{E4F5FAF2-FD30-4C5D-87FC-FC8E5BB4B751}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApp.Services.Data", "BookingApp.Services.Data\BookingApp.Services.Data.csproj", "{F16C8B5B-A8D7-46EA-9E2D-69C511007F08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingApp.Services.Data", "BookingApp.Services.Data\BookingApp.Services.Data.csproj", "{F16C8B5B-A8D7-46EA-9E2D-69C511007F08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -3,6 +3,7 @@ using BookingApp.Data.Models;
 using BookingApp.Services.Data;
 using BookingApp.Services.Data.Interfaces;
 using BookingApp.Web.Infrastructure;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,10 +23,28 @@ namespace BookingApp.Web
                     options.UseSqlServer(connectionString);
                 });
 
+
+            builder.WebHost.ConfigureKestrel(options =>
+            {
+                options.ConfigureHttpsDefaults(httpsOptions =>
+                {
+                    httpsOptions.SslProtocols = System.Security.Authentication.SslProtocols.Tls12;
+                });
+            });
+
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+                    options.Cookie.SameSite = SameSiteMode.Lax; ;
+                    options.Cookie.HttpOnly = true;
+                    options.LoginPath = "/Identity/Account/Login";
+                    options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+                });
+
             builder.Services.AddIdentity<ApplicationUser, IdentityRole<Guid>>()
-                .AddEntityFrameworkStores<BookingDbContext>()
-                .AddDefaultUI()
-                .AddDefaultTokenProviders();
+                    .AddEntityFrameworkStores<BookingDbContext>()
+                    .AddDefaultTokenProviders();
 
             builder.Services.Configure<IdentityOptions>(options =>
             {
@@ -41,6 +60,8 @@ namespace BookingApp.Web
 
             builder.Services.AddScoped<IHomeService, HomeService>();
             builder.Services.AddScoped<IPropertyService, PropertyService>();
+            builder.Services.AddScoped<IBookingService, BookingService>();
+
             builder.Services.AddRazorPages();
 
             builder.Services.AddControllersWithViews();
@@ -62,19 +83,15 @@ namespace BookingApp.Web
 
             app.UseRouting();
 
-            app.UseAuthentication();
+            app.UseAuthentication(); 
             app.UseAuthorization();
+
+            app.UseRoleSeederAsync().GetAwaiter().GetResult();
 
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
-            using (var scope = app.Services.CreateScope())
-            {
-                var serviceProvider = scope.ServiceProvider;
-                UserAdminLogic.SeedRolesAndAdminAsync(serviceProvider).GetAwaiter().GetResult();
-            }
 
             app.Run();
         }

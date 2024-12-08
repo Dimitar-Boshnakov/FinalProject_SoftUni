@@ -27,17 +27,20 @@ namespace BookingApp.Web.Areas.Identity.Pages.Account
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserStore<ApplicationUser> _userStore;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ILogger<RegisterModel> _logger;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
+            RoleManager<IdentityRole> roleManager,
             ILogger<RegisterModel> logger)
         {
             _userManager = userManager;
             _userStore = userStore;
             _signInManager = signInManager;
+            _roleManager = roleManager;
             _logger = logger;
         }
 
@@ -107,17 +110,19 @@ namespace BookingApp.Web.Areas.Identity.Pages.Account
             returnUrl ??= Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = CreateUser();
-                user.Email = Input.Email;
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
 
-                await _userStore.SetUserNameAsync(user, Input.Username, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
-
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    var userId = await _userManager.GetUserIdAsync(user);
+                    // Проверка и добавяне на роля "User"
+                    if (!await _roleManager.RoleExistsAsync("User"))
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole("User"));
+                    }
+                    await _userManager.AddToRoleAsync(user, "User");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return LocalRedirect(returnUrl);

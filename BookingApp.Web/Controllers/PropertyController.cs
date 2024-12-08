@@ -29,7 +29,13 @@ namespace BookingApp.Web.Controllers
         [Authorize]
         public async Task<IActionResult> BookProperty(Guid id)
         {
-            var userId = Guid.Parse(User.FindFirst("Id")!.Value);
+            var userIdClaim = User.FindFirst("Id");
+            if (userIdClaim == null)
+            {
+                return Unauthorized("User is not authenticated.");
+            }
+
+            var userId = Guid.Parse(userIdClaim.Value);
 
             var success = await _propertyService.BookPropertyAsync(id, userId);
 
@@ -37,6 +43,7 @@ namespace BookingApp.Web.Controllers
             {
                 return BadRequest("The property is either unavailable or does not exist.");
             }
+
 
             return RedirectToAction("Index", "Bookings");
         }

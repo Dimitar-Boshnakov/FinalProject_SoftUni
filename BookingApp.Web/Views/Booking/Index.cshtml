@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BookingApp.Web.ViewModels.Models.Booking.BookingViewModel>
+
+<h2>Your Bookings</h2>
+
+@if (!Model.Any())
+{
+    <p>No bookings found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Property Name</th>
+                <th>Location</th>
+                <th>Price</th>
+                <th>Arrival</th>
+                <th>Leave</th>
+                <th>Available</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model)
+            {
+                <tr>
+                    <td>@booking.PropertyName</td>
+                    <td>@booking.PropertyLocation</td>
+                    <td>@booking.Price:C</td>
+                    <td>@booking.ArrivalDate.ToShortDateString()</td>
+                    <td>@booking.LeaveDate.ToShortDateString()</td>
+                    <td>@(booking.IsAvailable ? "Yes" : "No")</td>
+                    <td>
+                        @if (!booking.IsPaid)
+                        {
+                            <form asp-action="ConfirmPayment" asp-route-id="@booking.Id" method="post" style="display:inline;">
+                                <button type="submit" class="btn btn-success">Confirm Payment</button>
+                            </form>
+                        }
+
+
+                        <form asp-action="DeleteBooking" asp-route-id="@booking.Id" method="post" style="display:inline;">
+                             <button type="submit" class="btn btn-danger">Delete Booking</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

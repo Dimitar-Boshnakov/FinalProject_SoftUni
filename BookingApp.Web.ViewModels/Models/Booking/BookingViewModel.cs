@@ -14,6 +14,7 @@ namespace BookingApp.Web.ViewModels.Models.Booking
         public decimal Price { get; set; }
         public DateTime ArrivalDate { get; set; }
         public DateTime LeaveDate { get; set; }
-        public bool IsAvailable { get; set; } 
+        public bool IsAvailable { get; set; }
+        public bool IsPaid { get; set; }
     }
 }

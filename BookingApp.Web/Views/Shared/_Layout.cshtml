@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using BookingApp.Data.Models
-
+@inject SignInManager<ApplicationUser> SignInManager
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,17 +29,31 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        <li class="nav-itame">
-                            <a class="nav-link text-dark" href="/Identity/Account/Login">Login</a>
-                        </li>
-                        <li class ="nav-itame">
-                            <a class="nav-link text-dark" href="/Identity/Account/Register">Register</a>
-                        </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Booking" asp-action="Index">Bookings</a>
+                            </li>
+                            <li class="nav-item">
+                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" method="post">
+                                    <button type="submit" class="btn btn-link nav-link text-dark">Logout</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
         </nav>
-    </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
