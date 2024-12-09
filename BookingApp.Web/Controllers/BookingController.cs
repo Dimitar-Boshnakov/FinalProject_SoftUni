@@ -9,7 +9,7 @@ using System.Security.Claims;
 namespace BookingApp.Web.Controllers
 {
     [Authorize(Roles = "User")]
-    public class BookingController : Controller
+    public class BookingController : BaseController
     {
         private readonly IBookingService _bookingService;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -56,9 +56,13 @@ namespace BookingApp.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Guid propertyId, DateTime arrivalDate, DateTime leaveDate)
         {
-            var userId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+            var userId = GetUserId();
+            if (userId == null)
+            {
+                return Unauthorized();
+            }
 
-            var success = await _bookingService.CreateBookingAsync(propertyId, userId, arrivalDate, leaveDate);
+            var success = await _bookingService.CreateBookingAsync(propertyId, userId.Value, arrivalDate, leaveDate);
             if (!success)
             {
                 ModelState.AddModelError(string.Empty, "Could not create booking.");

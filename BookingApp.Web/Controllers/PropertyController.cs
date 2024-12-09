@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookingApp.Web.Controllers
 {
-    public class PropertyController : Controller
+    public class PropertyController : BaseController
     {
         private readonly IPropertyService _propertyService;
 
@@ -29,21 +29,18 @@ namespace BookingApp.Web.Controllers
         [Authorize]
         public async Task<IActionResult> BookProperty(Guid id)
         {
-            var userIdClaim = User.FindFirst("Id");
-            if (userIdClaim == null)
+            var userId = GetUserId();
+            if (userId == null)
             {
                 return Unauthorized("User is not authenticated.");
             }
 
-            var userId = Guid.Parse(userIdClaim.Value);
-
-            var success = await _propertyService.BookPropertyAsync(id, userId);
+            var success = await _propertyService.BookPropertyAsync(id, userId.Value);
 
             if (!success)
             {
                 return BadRequest("The property is either unavailable or does not exist.");
             }
-
 
             return RedirectToAction("Index", "Bookings");
         }

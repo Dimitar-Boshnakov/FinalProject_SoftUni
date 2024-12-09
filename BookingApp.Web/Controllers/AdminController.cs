@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BookingApp.Web.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
         private readonly IAdminService _adminService;
 

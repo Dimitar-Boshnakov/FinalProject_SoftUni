@@ -8,7 +8,7 @@ using System.Diagnostics;
 
 namespace BookingApp.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly IHomeService _homeService;
 
@@ -22,17 +22,12 @@ namespace BookingApp.Web.Controllers
             var propertiesViewModel = _homeService.GetFilteredProperties(location, minPrice, maxPrice, isAvailable);
             return View(propertiesViewModel);
         }
-    
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [Route("Error")]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return RedirectToAction("Error500", "Base");
         }
     }
 }
