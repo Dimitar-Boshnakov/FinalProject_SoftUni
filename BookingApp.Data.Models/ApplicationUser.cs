@@ -17,5 +17,7 @@ namespace BookingApp.Data.Models
 
         public virtual ICollection<ApplicationUserBookings> ApplicationUserBookings { get; set; }
            = new HashSet<ApplicationUserBookings>();
+
+        public virtual ICollection<Property> Properties { get; set; } = new HashSet<Property>();
     }
 }

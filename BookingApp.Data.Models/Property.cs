@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using static BookingApp.Common.EntityValidation;
 
 namespace BookingApp.Data.Models
@@ -27,6 +28,12 @@ namespace BookingApp.Data.Models
         public string? Description { get; set; }
 
         public string? ImgUrl { get; set; }
+
+        [Required]
+        public Guid OwnerId { get; set; }
+
+        [ForeignKey(nameof(OwnerId))]
+        public ApplicationUser Owner { get; set; } = null!;
 
         public bool IsDeleated { get; set; } = false;
 
