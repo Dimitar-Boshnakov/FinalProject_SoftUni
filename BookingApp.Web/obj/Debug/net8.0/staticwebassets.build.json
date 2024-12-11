@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4tICw5b82U5uyT2mhDsS6p4OstZQ9tVGSpGx/VZduTM=",
+  "Hash": "02ikD4uIn/bEEKHjPTaDSkXjnLP0tk6wFJ0N3b2guvc=",
   "Source": "BookingApp.Web",
   "BasePath": "_content/BookingApp.Web",
   "Mode": "Default",
@@ -1326,6 +1326,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\sofia-apartment.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Mitko\\Desktop\\Programing\\FinalProject\\FinalProject_SoftUni\\BookingApp.Web\\wwwroot\\Images\\villaInGreece.jpg",
+      "SourceId": "BookingApp.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Mitko\\Desktop\\Programing\\FinalProject\\FinalProject_SoftUni\\BookingApp.Web\\wwwroot\\",
+      "BasePath": "_content/BookingApp.Web",
+      "RelativePath": "Images/villaInGreece.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\villaInGreece.jpg"
     },
     {
       "Identity": "C:\\Users\\Mitko\\Desktop\\Programing\\FinalProject\\FinalProject_SoftUni\\BookingApp.Web\\wwwroot\\Images\\villa-sea.jpg",

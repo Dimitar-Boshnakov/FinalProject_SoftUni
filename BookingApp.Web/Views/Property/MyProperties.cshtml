@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BookingApp.Web.ViewModels.Models.Property.PropertyListViewModel>
+
+<h2>My Properties</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Price per Night</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var property in Model)
+        {
+            <tr>
+                <td>@property.Name</td>
+                <td>@property.Location</td>
+                <td>@property.PricePerNight</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@property.Id" class="btn btn-warning">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@property.Id" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace BookingApp.Web.ViewModels.Models.Property
 {
-    public class PropertyDetailsViewModel
+    public class EditPropertyViewModel
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = null!;
         public string Description { get; set; } = null!;
         public string Location { get; set; } = null!;
-        public decimal Price { get; set; }
-        public bool IsAvailable { get; set; }
+        public decimal PricePerNight { get; set; }
+        public string ImgUrl { get; set; } = null!;
     }
 }

@@ -13,7 +13,10 @@ namespace BookingApp.Services.Data.Interfaces
         Task<bool> BookPropertyAsync(Guid id, Guid userId);
         Task<List<PropertyDetailsViewModel>> GetAllPropertiesAsync();
 
-
-       
+        Task<bool> AddPropertyAsync(AddPropertyViewModel model, Guid userId);
+        Task<EditPropertyViewModel?> GetPropertyForEditAsync(Guid propertyId, Guid userId);
+        Task<bool> UpdatePropertyAsync(EditPropertyViewModel model, Guid userId);
+        Task<bool> DeletePropertyAsync(Guid propertyId, Guid userId);
+        Task<IEnumerable<PropertyListViewModel>> GetUserPropertiesAsync(Guid userId);
     }
 }

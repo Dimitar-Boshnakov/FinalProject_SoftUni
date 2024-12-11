@@ -87,7 +87,7 @@ namespace BookingApp.Web.Controllers
         [HttpGet]
         public IActionResult Create(Guid propertyId)
         {
-            ViewBag.PropertyId = propertyId; 
+            ViewBag.PropertyId = propertyId;
             return View();
         }
 

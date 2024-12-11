@@ -80,7 +80,91 @@ namespace BookingApp.Services.Data
                 .ToListAsync();
         }
 
-       
+        public async Task<bool> AddPropertyAsync(AddPropertyViewModel model, Guid userId)
+        {
+            var property = new Property
+            {
+                Id = Guid.NewGuid(),
+                PropertyName = model.Name,
+                Description = model.Description,
+                Location = model.Location,
+                PricePerNight = model.PricePerNight,
+                ImgUrl = model.ImgUrl,
+                OwnerId = userId,
+                IsAvailable = true
+            };
+
+            await _context.Properties.AddAsync(property);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<EditPropertyViewModel?> GetPropertyForEditAsync(Guid propertyId, Guid userId)
+        {
+            var property = await _context.Properties
+                .Where(p => p.Id == propertyId && p.OwnerId == userId)
+                .Select(p => new EditPropertyViewModel
+                {
+                    Id = p.Id,
+                    Name = p.PropertyName,
+                    Description = p.Description,
+                    Location = p.Location,
+                    PricePerNight = p.PricePerNight,
+                    ImgUrl = p.ImgUrl
+                })
+                .FirstOrDefaultAsync();
+
+            return property;
+        }
+
+        public async Task<bool> UpdatePropertyAsync(EditPropertyViewModel model, Guid userId)
+        {
+            var property = await _context.Properties.FirstOrDefaultAsync(p => p.Id == model.Id && p.OwnerId == userId);
+
+            if (property == null)
+            {
+                return false;
+            }
+
+            property.PropertyName = model.Name;
+            property.Description = model.Description;
+            property.Location = model.Location;
+            property.PricePerNight = model.PricePerNight;
+            property.ImgUrl = model.ImgUrl;
+
+            _context.Properties.Update(property);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> DeletePropertyAsync(Guid propertyId, Guid userId)
+        {
+            var property = await _context.Properties.FirstOrDefaultAsync(p => p.Id == propertyId && p.OwnerId == userId);
+
+            if (property == null)
+            {
+                return false;
+            }
+
+            _context.Properties.Remove(property);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<IEnumerable<PropertyListViewModel>> GetUserPropertiesAsync(Guid userId)
+        {
+            return await _context.Properties
+                .Where(p => p.OwnerId == userId)
+                .Select(p => new PropertyListViewModel
+                {
+                    Id = p.Id,
+                    Name = p.PropertyName,
+                    Location = p.Location,
+                    PricePerNight = p.PricePerNight,
+                    IsAvailable = p.IsAvailable
+                })
+                .ToListAsync();
+        }
     }
-    
+
 }

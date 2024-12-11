@@ -1,4 +1,4 @@
-﻿@using BookingApp.Data.Models
+﻿﻿@using BookingApp.Data.Models
 @using BookingApp.Web.ViewModels.Models.HomeViewModel;
 @using Microsoft.AspNetCore.Identity
 @model IEnumerable<HomeIndexViewModel>;
@@ -61,7 +61,7 @@
                         <p><strong>Price per Night:</strong> $@property.Price</p>
                         <p><strong>Status:</strong> @(property.IsAvailable ? "Available" : "Not Available")</p>
 
-                        
+
                         <a href="@Url.Action("ViewDetails", "Property", new { id = property.Id })" class="btn-view">View Details</a>
 
                         @if (SignInManager.IsSignedIn(User) && property.IsAvailable)
@@ -75,4 +75,3 @@
         </div>
     </div>
 </div>
-

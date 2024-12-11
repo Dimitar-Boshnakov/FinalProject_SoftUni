@@ -16,6 +16,7 @@ namespace BookingApp.Web.Infrastructure
                 }
             }
 
+            // Създаване на административен потребител, ако не съществува
             var adminEmail = "admin@domain.com";
             var adminUser = await userManager.FindByEmailAsync(adminEmail);
             if (adminUser == null)
@@ -24,7 +25,8 @@ namespace BookingApp.Web.Infrastructure
                 {
                     UserName = adminEmail,
                     Email = adminEmail,
-                    EmailConfirmed = true
+                    EmailConfirmed = true,
+                    SecurityStamp = Guid.NewGuid().ToString() // Увери се, че SecurityStamp е зададен
                 };
 
                 var result = await userManager.CreateAsync(user, "Admin123!");
@@ -34,24 +36,22 @@ namespace BookingApp.Web.Infrastructure
                 }
             }
 
+            // Добавяне на роля "User" към всички потребители, които нямат роли
             var allUsers = userManager.Users.ToList();
-
             foreach (var user in allUsers)
             {
-                var roles = await userManager.GetRolesAsync(user);
-                if (roles.Count == 0) 
+                // Проверка дали SecurityStamp е зададен
+                if (string.IsNullOrEmpty(user.SecurityStamp))
                 {
-                    await userManager.AddToRoleAsync(user, "User");
+                    user.SecurityStamp = Guid.NewGuid().ToString();
+                    await userManager.UpdateAsync(user);
                 }
-            }
 
-            foreach (var user in allUsers)
-            {
+                // Проверка дали потребителят има роля, ако не - добавяне на роля "User"
                 var roles = await userManager.GetRolesAsync(user);
-                if (roles.Count == 0) 
+                if (roles.Count == 0)
                 {
                     await userManager.AddToRoleAsync(user, "User");
-                    Console.WriteLine($"Role 'User' added to {user.Email}");
                 }
             }
         }
