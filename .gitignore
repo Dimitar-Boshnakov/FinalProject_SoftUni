@@ -6,7 +6,8 @@
 /.vs/C#_FinalProject2024
 
 CoverageReport/ 
-BookingApp.Service.Test/TestResults/ 
+BookingApp.Service.Test/TestResults/
+BookingApp.Service.Test/TestResults/*
 =======
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
@@ -17,5 +18,6 @@ BookingApp.Service.Test/TestResults/
 CoverageReport/
 
 BookingApp.Service.Test/TestResults/
+BookingApp.Service.Test/TestResults/*
 
 >>>>>>> 4e262b25d5301ef91b581849bd0188dd2de761bc
