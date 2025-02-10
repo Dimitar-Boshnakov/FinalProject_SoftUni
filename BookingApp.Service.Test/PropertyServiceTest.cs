@@ -32,7 +32,7 @@ namespace BookingApp.Service.Test
         [TearDown]
         public void TearDown()
         {
-            dbContext.Dispose(); // Dispose of the context to free resources
+            dbContext.Dispose(); 
         }
 
         [Test]

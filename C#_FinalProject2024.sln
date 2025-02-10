@@ -25,7 +25,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingApp.Services.Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{73BE63A2-7BBE-4E95-94C7-5D683EAE16F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApp.Service.Test", "BookingApp.Service.Test\BookingApp.Service.Test.csproj", "{1D2025AA-A348-45E5-9423-16E7878ED394}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingApp.Service.Test", "BookingApp.Service.Test\BookingApp.Service.Test.csproj", "{1D2025AA-A348-45E5-9423-16E7878ED394}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E564330B-E357-49D2-9665-810ACF83CDD8}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
