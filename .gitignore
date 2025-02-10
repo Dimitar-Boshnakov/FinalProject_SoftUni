@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
@@ -5,3 +6,15 @@
 /.vs/C#_FinalProject2024
 
 CoverageReport/ 
+=======
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/C#_FinalProject2024
+
+CoverageReport/
+
+BookingApp.Service.Test/TestResults/
+
+>>>>>>> 4e262b25d5301ef91b581849bd0188dd2de761bc
