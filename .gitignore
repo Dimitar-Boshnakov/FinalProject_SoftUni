@@ -11,3 +11,6 @@ BookingApp.Service.Test/TestResults/*
 
 FinalProject_SoftUni/BookingApp.Service.Test/bin/
 FinalProject_SoftUni/BookingApp.Service.Test/obj/
+
+bin/
+obj/
